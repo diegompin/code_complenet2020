@@ -18,4 +18,5 @@ University of California, Davis
 4) Run script_init_00_docker.sh
 5) Run script_init_01_services.sh
 6) Run script_init_02_mongo.sh
-7) Open http://localhost:8080
+7) Open http://localhost:8080 to see list of DAGs
+![GitHub Logo](/DAG_LIST.png)
