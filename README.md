@@ -21,4 +21,4 @@ University of California, Davis
 7) Open http://localhost:8080 to see list of DAGs
 ![List of DAGs](/DAG_LIST.png)
 8) Execute DAG_SHARED_CARE_AREA_HU for Comparative Analysis
-![Shared Care Area HU](/DAG_COMPARATIVE_ANALYSIS.png)
+![DAG HU](/DAG_HU.png)
