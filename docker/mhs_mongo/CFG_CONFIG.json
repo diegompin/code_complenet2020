@@ -1,0 +1,108 @@
+{
+	"_cls" : "ConfigDocument",
+	"CFG_KEY" : "2016",
+	"CFG_CLASS" : "CENSUS",
+	"CFG_NAME" : "GEOCODES",
+	"CFG_VALUE" : {
+		"URL" : "https://www2.census.gov/programs-surveys/popest/geographies/2016/all-geocodes-v2016.xlsx"
+	}
+}
+{
+	"_cls" : "ConfigDocument",
+	"CFG_KEY" : "2012_2013",
+	"CFG_CLASS" : "CHHS",
+	"CFG_NAME" : "PATIENT_ORIGIN_MARKET_SHARE",
+	"CFG_VALUE" : {
+		"URL" : "https://data.chhs.ca.gov/dataset/dcb1799d-ddfa-485e-bc35-f86357f08e01/resource/1f929368-b515-4cfd-aa4b-01c3b3701e6a/download/2012-2013-patient-origin-market-share.xlsx",
+		"sheet_name" : "DATA"
+	}
+}
+{
+	"_cls" : "ConfigDocument",
+	"CFG_KEY" : "2014_2015",
+	"CFG_CLASS" : "CHHS",
+	"CFG_NAME" : "PATIENT_ORIGIN_MARKET_SHARE",
+	"CFG_VALUE" : {
+		"URL" : "https://data.chhs.ca.gov/dataset/dcb1799d-ddfa-485e-bc35-f86357f08e01/resource/07bad4c6-3b52-4cd7-b792-4384b26d3e12/download/2014-2015-patient-origin-market-share.xlsx",
+		"sheet_name" : "DATA"
+	}
+}
+{
+	"_cls" : "ConfigDocument",
+	"CFG_KEY" : "2016_2017",
+	"CFG_CLASS" : "CHHS",
+	"CFG_NAME" : "PATIENT_ORIGIN_MARKET_SHARE",
+	"CFG_VALUE" : {
+		"URL" : "https://data.chhs.ca.gov/dataset/dcb1799d-ddfa-485e-bc35-f86357f08e01/resource/a2a2b6c7-d4a6-4c3f-8e65-73c59b7e2235/download/2016-2017-patient-origin-market-share.xlsx",
+		"sheet_name" : "Data"
+	}
+}
+{
+	"_cls" : "ConfigDocument",
+	"CFG_KEY" : "2018",
+	"CFG_CLASS" : "CHHS",
+	"CFG_NAME" : "PATIENT_ORIGIN_MARKET_SHARE",
+	"CFG_VALUE" : {
+		"URL" : "https://data.chhs.ca.gov/dataset/dcb1799d-ddfa-485e-bc35-f86357f08e01/resource/a62d977c-bcb9-495b-8e16-a6dbbbd92789/download/2018-patient-origin-market-share.xlsx",
+		"sheet_name" : "Data"
+	}
+}
+
+
+{
+	"_cls" : "ConfigDocument",
+	"CFG_KEY" : "ZCTA",
+	"CFG_CLASS" : "CENSUS",
+	"CFG_NAME" : "SHAPEFILE",
+	"CFG_VALUE" : {
+		"URL" : "https://www2.census.gov/geo/tiger/GENZ2017/shp/cb_2017_us_zcta510_500k.zip"
+	}
+}
+{
+	"_cls" : "ConfigDocument",
+	"CFG_KEY" : "2018",
+	"CFG_CLASS" : "UDSMapper",
+	"CFG_NAME" : "ZIP_ZCTA",
+	"CFG_VALUE" : {
+		"URL" : "https://www.udsmapper.org/docs/zip_to_zcta_2018.xlsx",
+		"sheet_name" : "ziptozcta2017"
+	}
+}
+{
+	"_cls" : "ConfigDocument",
+	"CFG_KEY" : "2010",
+	"CFG_CLASS" : "CENSUS",
+	"CFG_NAME" : "RELATIONSHIP_ZCTA_COUNTY",
+	"CFG_VALUE" : {
+		"URL" : "http://www2.census.gov/geo/docs/maps-data/data/rel/zcta_county_rel_10.txt"
+	}
+}
+{
+	"_cls" : "ConfigDocument",
+	"CFG_KEY" : "2019",
+	"CFG_CLASS" : "MEDICARE",
+	"CFG_NAME" : "HOSPITAL_GENERAL_INFORMATION",
+	"CFG_VALUE" : {
+		"URL" : "https://data.medicare.gov/api/views/xubh-q36u/rows.csv?accessType=DOWNLOAD&sorting=true"
+	}
+}
+{
+	"_cls" : "ConfigDocument",
+	"CFG_KEY" : "2019",
+	"CFG_CLASS" : "CHHS",
+	"CFG_NAME" : "HEALTHCARE_FACILITY_LISTING",
+	"CFG_VALUE" : {
+		"URL" : "https://data.chhs.ca.gov/dataset/59d9abe7-2664-407a-a5aa-f89a866f3381/resource/e9c0e2a1-a2dd-462f-b35a-17841810e78f/download/licensed-healthcare-facility-listing-june-30-2019.csv"
+	}
+}
+
+{
+	"_cls" : "ConfigDocument",
+	"CFG_KEY" : "2017",
+	"CFG_CLASS" : "MEDICARE",
+	"CFG_NAME" : "PART_D_PRESCRIBER",
+	"CFG_VALUE" : {
+		"URL" : "http://download.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports/Medicare-Provider-Charge-Data/Downloads/PartD_Prescriber_PUF_NPI_DRUG_17.zip"
+	}
+}
+

@@ -1,0 +1,125 @@
+version: '2.2'
+services:
+#    redis:
+#        image: 'redis:5.0.5'
+
+    mongo:
+#        image: mongo
+        build:
+            context: .
+            dockerfile: ./docker/mhs_mongo/Dockerfile
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: root
+            MONGO_INITDB_ROOT_PASSWORD: password
+            MONGO_INITDB_DATABASE: mhs
+            MONGO_NON_ROOT_USERNAME: mhs
+            MONGO_NON_ROOT_PASSWORD: mhs
+        ports:
+            - "27017:27017"
+        volumes:
+            - "$MHS_DATALINK/mongo/mhs/data:/data/db"
+            - "$MHS_DATALINK/mongo/mhs/dump:/data/dump"
+            - ./docker/mhs_mongo/scripts/mongo-initdb.sh:/docker-entrypoint-initdb.d/mongo-user.sh:ro
+#        networks:
+#            - mongo-compose-network
+#        command: bash -c "mongod --repair && mongod"
+        expose:
+          - 27017
+#        cpus: .2
+#        mem_limit: 10g
+#        memswap_limit: 30g
+#        mem_reservation: 512m
+#        command: --auth
+
+#    mongo-seed:
+#        build: ./mhs_mongo
+#        networks:
+#          - mongo-compose-network
+#        depends_on:
+#          - mongo
+#        volumes:
+#            - "$MHS_DATALINK/mongo/mhs/dump:/data/dump"
+
+#    mongo-express:
+#        image: mongo-express
+#        restart: always
+#        ports:
+#            - 8081:8081
+#        environment:
+#            ME_CONFIG_MONGODB_PORT: 27017
+#            ME_CONFIG_MONGODB_ADMINUSERNAME: root
+#            ME_CONFIG_MONGODB_ADMINPASSWORD: password
+##        links:
+##            - mongo
+#        networks:
+#            - mongo-compose-network
+
+    postgres:
+        image: postgres:9.6
+        environment:
+            - POSTGRES_USER=airflow
+            - POSTGRES_PASSWORD=airflow
+            - POSTGRES_DB=airflow
+#        networks:
+#            - postgress-network
+        volumes:
+          - "$MHS_DATALINK/postgres/airflow:/var/lib/postgresql/data"
+    webserver_local:
+        build:
+            context: .
+            dockerfile: ./docker/mhs_python/Dockerfile
+
+        image: mhs_python
+#        image: puckel/docker-airflow:1.10.4
+#        build: .
+        restart: always
+#        cpus: .8
+#        mem_limit: 40g
+#        memswap_limit: 80g
+
+        depends_on:
+            - mongo
+            - postgres
+        environment:
+            - MONGO_HOST=mongo
+            - MONGO_PORT=27017
+            - LOAD_EX=n
+            - EXECUTOR=Local
+            - AIRFLOW__CORE__PARALLELISM=32
+            - AIRFLOW__CORE__DAG_CONCURRENCY=16
+            - AIRFLOW__CELERY__WORKER_CONCURRENCY=6
+            - AIRFLOW__SCHEDULER__MAX_THREADS=2
+        volumes:
+            - ./mhs/dags:/usr/local/airflow/dags
+            - ./mhs:/usr/local/airflow/mhs
+            - "$MHS_DATALINK:/Volumes/MHS"
+            # Uncomment to include custom plugins
+            # - ./plugins:/usr/local/airflow/plugins
+        ports:
+            - "8090:8090"
+        command: webserver
+        healthcheck:
+            test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]
+            interval: 30s
+            timeout: 30s
+            retries: 3
+#        networks:
+#            - mongo-compose-network
+#            - postgress-network
+#
+#    graph-tool:
+#        image: tiagopeixoto/graph-tool
+#        volumes:
+#           - "$MHS_DATALINK/:/"
+#
+#networks:
+#    postgress-network:
+#        driver: bridge
+#
+#    mongo-compose-network:
+#        driver: bridge
+
+#volumes:
+#    mongodata:
+#        name: mongodata
