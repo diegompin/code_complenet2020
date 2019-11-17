@@ -19,4 +19,6 @@ University of California, Davis
 5) Run script_init_01_services.sh
 6) Run script_init_02_mongo.sh
 7) Open http://localhost:8080 to see list of DAGs
-![GitHub Logo](/DAG_LIST.png)
+![List of DAGs](/DAG_LIST.png)
+8) Execute DAG_SHARED_CARE_AREA_HU for Comparative Analysis
+![Shared Care Area HU](/DAG_COMPARATIVE_ANALYSIS.png)
